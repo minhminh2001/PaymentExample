@@ -71,7 +71,7 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        PaymentRequest paymentRequest=new PaymentRequest(this,paymentRequestListener);
+        PaymentRequest paymentRequest = new PaymentRequest(this, paymentRequestListener);
 
     }
 
@@ -102,20 +102,18 @@ public class MainActivity extends BaseActivity {
         @Override
         public void onPaymentResult(@NonNull PaymentRequest paymentRequest, @NonNull PaymentRequestResult result) {
             Log.d(TAG, "paymentRequestListener.onPaymentResult()");
-            final String resultString;
-            if (result.isProcessed()) {
-                resultString = result.getPayment().getPaymentStatus().toString();
-                verifyPayment(result.getPayment());
+            if (result.isProcessed() && (
+                    result.getPayment().getPaymentStatus() == Payment.PaymentStatus.AUTHORISED
+                            || result.getPayment().getPaymentStatus() == Payment.PaymentStatus.RECEIVED)) {
+                Intent intent = new Intent(this, SuccessActivity.class);
+                startActivity(intent);
+                finish();
             } else {
-                resultString = result.getError().toString();
+                Intent intent = new Intent(this, PaymentResultActivity.class);
+                startActivity(intent);
+                finish();
             }
 
-            final Intent intent = new Intent(getApplicationContext(), PaymentResultActivity.class);
-            intent.putExtra("Result", resultString);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(intent);
-            finish();
         }
     };
 
@@ -132,6 +130,7 @@ public class MainActivity extends BaseActivity {
     @OnClick(R.id.btn_proceedbutton)
     public void onViewClicked() {
     }
+
     private String getSetupDataString(final String token) {
         final JSONObject jsonObject = new JSONObject();
         try {
