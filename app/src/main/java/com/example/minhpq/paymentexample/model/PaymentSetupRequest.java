@@ -16,20 +16,6 @@ public class PaymentSetupRequest {
     public PaymentSetupRequest() {
     }
 
-    public PaymentSetupRequest(Amount amount, String merchantReference, String shopperIP,
-                               String shopperLocale, String merchantAccount, String countryCode,
-                               String paymentDeadline, String returnURL, String paymentToken) {
-        this.amount = amount;
-        this.merchantReference = merchantReference;
-        this.shopperIP = shopperIP;
-        this.shopperLocale = shopperLocale;
-        this.merchantAccount = merchantAccount;
-        this.countryCode = countryCode;
-        this.paymentDeadline = paymentDeadline;
-        this.returnURL = returnURL;
-        this.paymentToken = paymentToken;
-    }
-
     public Amount getAmount() {
         return amount;
     }

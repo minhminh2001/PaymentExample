@@ -28,14 +28,13 @@ public class CreditsCardFragment extends Fragment {
     private String publicKey;
     private String generationTime;
 
-    /**
-     * The listener interface for receiving payment method selection result.
-     * Container Activity must implement this interface.
-     */
     public interface CreditCardInfoListener {
         void onCreditCardInfoProvided(String paymentDetails);
     }
 
+    /**
+     * @param creditCardInfoListener
+     */
     public void setCreditCardInfoListener(@NonNull final CreditCardInfoListener creditCardInfoListener) {
         this.creditCardInfoListener = creditCardInfoListener;
     }
@@ -47,7 +46,12 @@ public class CreditsCardFragment extends Fragment {
         publicKey = args.getString("public_key");
         generationTime = args.getString("generation_time");
     }
-
+    /**
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -66,7 +70,6 @@ public class CreditsCardFragment extends Fragment {
                     }
                 }
             });
-
         } else {
             view = inflater.inflate(R.layout.fragment_creditcard_form, container, false);
             final EditText creditCardNoView = ((EditText) view.findViewById(R.id.credit_card_no));
