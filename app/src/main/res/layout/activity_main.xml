@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activity.MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:id="@+id/rl_footer"
+            android:layout_margin="@dimen/margin_rl_footer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:id="@+id/rv_orderdetaillayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true">
+
+                <TextView
+                    android:id="@+id/tv_orderamounttitle"
+                    style="@style/textTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:text="Order Amount" />
+
+                <EditText
+                    android:id="@+id/ed_orderamountentry"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_orderamounttitle"
+                    android:digits="0123456789,."
+                    android:inputType="numberDecimal"
+                    android:minWidth="100sp"
+                    android:text="0"
+                    android:textSize="@dimen/textsize_order" />
+
+                <TextView
+                    android:id="@+id/tv_ordercurrencytitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:text="Order Currency"
+                    android:textSize="@dimen/textsize_title" />
+
+                <EditText
+                    android:id="@+id/ed_ordercurrencyentry"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@id/tv_ordercurrencytitle"
+                    android:inputType="textCapCharacters"
+                    android:maxLength="3"
+                    android:text="EUR"
+                    android:textSize="@dimen/textsize_order" />
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_below="@+id/rv_orderdetaillayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/tv_merchantreferencetitle"
+                    android:text="Merchant Reference"
+                    style="@style/textTitle"/>
+
+                <EditText
+                    android:id="@+id/ed_merchantreferenceentry"
+                    android:layout_below="@id/tv_merchantreferencetitle"
+                    android:text="DemoDEMOdemo"
+                    style="@style/editTextValue"
+                />
+
+                <TextView
+                    android:id="@+id/tv_countrytitle"
+                    android:layout_below="@id/ed_merchantreferenceentry"
+                    android:text="Country"
+                    style="@style/textTitle"/>
+
+                <EditText
+                    android:id="@+id/ed_countryentry"
+                    android:layout_below="@id/tv_countrytitle"
+                    android:inputType="textCapCharacters"
+                    android:maxLength="2"
+                    android:text="NL"
+                    style="@style/editTextValue"
+                />
+
+                <TextView
+                    android:id="@+id/tv_paymentdeadlinetitle"
+                    android:layout_below="@id/ed_countryentry"
+                    android:text="Payment Deadline"
+                    style="@style/textTitle"/>
+
+                <EditText
+                    android:id="@+id/ed_paymentdeadlineentry"
+                    android:layout_below="@id/tv_paymentdeadlinetitle"
+                    android:inputType="datetime"
+                    android:text="2017-03-17T14:11:10"
+                    style="@style/editTextValue"
+                />
+
+                <TextView
+                    android:id="@+id/tv_shopperlocaletitle"
+                    android:layout_below="@id/ed_paymentdeadlineentry"
+                    android:text="Shopper Locale"
+                    style="@style/textTitle"/>
+
+                <EditText
+                    android:id="@+id/ed_shopperlocaleentry"
+                    android:layout_below="@id/tv_shopperlocaletitle"
+                    android:inputType="textCapCharacters"
+                    android:maxLength="2"
+                    android:text="NL"
+                    style="@style/editTextValue"
+                />
+
+                <TextView
+                    android:id="@+id/tv_shopperiptitle"
+                    android:layout_below="@id/ed_shopperlocaleentry"
+                    android:text="Shopper IP"
+                    style="@style/textTitle"/>
+
+                <EditText
+                    android:id="@+id/ed_shopperipentry"
+                    android:layout_below="@id/tv_shopperiptitle"
+                    android:inputType="numberDecimal"
+                    android:maxLength="15"
+                    android:text="192.168.11.90"
+                    style="@style/editTextValue"
+                />
+
+                <TextView
+                    android:id="@+id/tv_merchantaccounttitle"
+                    android:layout_below="@id/ed_shopperipentry"
+                    android:text="Merchant Account"
+                    style="@style/textTitle"/>
+
+                <EditText
+                    android:id="@+id/ed_merchantaccountentry"
+                    android:layout_below="@id/tv_merchantaccounttitle"
+                    android:text="TestMerchantCheckout"
+                    style="@style/editTextValue"
+                />
+
+                <TextView
+                    android:id="@+id/tv_returnurltitle"
+                    android:layout_below="@id/ed_merchantaccountentry"
+                    android:text="Return URL"
+                    style="@style/textTitle"/>
+
+                <EditText
+                    android:id="@+id/ed_returnurlentry"
+                    android:layout_below="@id/tv_returnurltitle"
+                    android:inputType="textUri"
+                    android:text="app://checkout"
+                    style="@style/editTextValue"
+                />
+
+                <Button
+                    android:id="@+id/btn_proceedbutton"
+                    android:layout_width="250dp"
+                    android:layout_height="62.5dp"
+                    android:layout_below="@id/ed_returnurlentry"
+                    android:layout_centerInParent="true"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:padding="10dp"
+                    android:scaleType="fitCenter"
+                    android:text="PAY">
+                </Button>
+            </RelativeLayout>
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>
