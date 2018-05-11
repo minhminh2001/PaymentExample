@@ -28,6 +28,8 @@ dependencies {
     compile "com.adyen.checkout:utils:$versions.adyen"
     compile "com.adyen.checkout:ui:$versions.adyen"
     compile "com.adyen.checkout:cardscan:$versions.adyen"
+    compile "com.jakewharton:butterknife:$versions.butterknife"
+    annotationProcessor "com.jakewharton:butterknife-compiler:$versions.butterknife"
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 }
